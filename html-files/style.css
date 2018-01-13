@@ -1,0 +1,65 @@
+table#main{
+    
+    align-content: center;
+    border:2px solid black;
+    width:70%;
+    background-color: rgb(214, 212, 207);
+}
+th{
+    align-content: center;
+    border:2px solid black;
+    
+}
+td.tasks{
+    border:white;
+}
+td{
+    align-content: center;
+    border:2px solid rgb(246, 250, 5);
+   
+}
+
+input[type="button"]{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    margin-right: 80px;
+    width: 80px;
+    font-family: "arial";
+}
+input#jsonstring{
+    width: 150px;
+}
+input#add,input#edit,input#remove,input#jsonstring{
+    background-color: rgb(181, 216, 181);
+}
+form{
+     color:brown;
+    background: rgb(188, 199, 219);
+    border: 2px solid;
+    width: 400px;
+    height: 400px;
+
+}
+
+table.add {
+    border: white;
+}
+th.add{
+  text-align: left;
+  padding: 10px;
+  border: white;
+  margin: 10px;
+}
+td.add{
+    border: white;
+    margin: 10px;
+
+}
+
+tr{
+   border: 20px;
+}
+form#addform , form#editform{
+    display: none;
+}

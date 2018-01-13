@@ -1,0 +1,84 @@
+<html !DocType>
+    <head>
+            <link rel="stylesheet" href="style.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="addtask.js"></script>
+            <script src="script.js"></script>
+            <script src="edittask.js"></script>
+            <script src="jquery.js"></script>
+            
+         
+        <header align=center>
+            <h1>Task Details</h1>
+
+        </header>
+    </head>
+    <body onload="createDefault();"> 
+        
+        <table  align="center" id="main">
+            <tr>
+                <th> Title</th>
+                <th>Description </th>
+                <th>Assignee </th>
+                <th> Estimated Hours </th>
+                <th>Start Date  </th>
+                <th> End Date  </th>
+                <th> Select </th>
+            </tr>
+        </table>
+        <div align="center"> 
+       <input type="button" value="Add"    id="add"> 
+        <input type="button" value="Edit"  id="edit">
+        <input type="button" value="Remove" id="remove" onclick="deleterow();">
+        <input type="button" value="Display as JSON String" id="jsonstring" width="150px" onclick="jsondisplay();"> </div>
+
+<table style="border:white" align="center">  <tr> <td class="tasks">
+        <form id="addform">
+            <h2 align="center">Add Task</h2>
+            <table class="add">
+     <tr> <th class="add">   <label>Title</label></th>
+         <td class="add"><input  style="border-radius: 4px" type="text"placeholder="Enter Task Title.." id="addTitle"></td></tr>
+    <tr> <th class="add">    <label >Description</label> </th>
+         <td class="add"> <textarea  style="border-radius: 4px"rows="3" id="addDescription"></textarea></td></tr>
+<tr>  <th class="add">     <label>Assignee</label></th>
+    <td class="add"> <input type="text" id="addPerson"> </td> </tr>
+<tr>       <th class="add">    <label>Estimated Hours</label></th>
+    <td class="add" > <input  style="border-radius: 4px"type="number" id="addHours"></td></tr>
+<tr>         <th class="add">    <label>Start Date</label></th> 
+    <td class="add"> <input style="border-radius: 4px" type="date" id="addStartDate"> </td> </tr>
+<tr>         <th class="add">    <label>End Date</label></th>
+     <td class="add"> <input style="border-radius: 4px" type="date" id="addEndDate"> </td> </tr>
+
+        </table>
+        <input type="button" value="OK" onclick="addAndClear();" style="margin-left:30px"> <input type="button" onclick="addclose();" value="cancel">          
+
+        </form> </td> <td class="tasks">
+
+        <form id="editform">
+                <h2 align="center">Edit Task</h2>
+                <table class="add">
+         <tr> <th class="add">   <label>Title</label></th>
+             <td class="add"><input type="text" style="border-radius: 4px" placeholder="Enter Task Title.." id="editTitle"></td></tr>
+        <tr> <th class="add">    <label >Description</label> </th>
+             <td class="add"> <textarea  style="border-radius: 4px"rows="3" id="editDescription"></textarea></td></tr>
+    <tr>  <th class="add">     <label>Assignee</label></th>
+        <td class="add"> <input type="text" style="border-radius: 4px" id="editPerson"> </td> </tr>
+    <tr>       <th class="add">    <label>Estimated Hours</label></th>
+        <td class="add"> <input type="number"  style="border-radius: 4px"id="editHours"></td></tr>
+    <tr>         <th class="add">    <label>Start Date</label></th>
+         <td class="add"> <input type="date" style="border-radius: 4px" id="editStartDate"> </td> </tr>
+    <tr>         <th class="add">    <label>End Date</label></th>
+         <td class="add"> <input type="date" style="border-radius: 4px" id="editEndDate"> </td> </tr>
+            </table>
+            <input type="button" value="OK" onclick="editAndClear();" style="margin-left:30px"> <input type="button"  onclick="editclose();" value="cancel">          
+    
+            </form> </td>
+        </tr> </table>
+
+<script>
+  
+    
+</script>
+
+    </body>
+</html>
