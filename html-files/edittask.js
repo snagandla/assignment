@@ -1,76 +1,68 @@
 
 function displayedit(){
-    var a= document.getElementById("editform");
-    if(a.style.display=="none"){
-      a.style.display= "block";
-    }else{
-        a.style.display="none";
-    }
+    if($("#addform").hide()){
+    if(!(getSelectedRow()==null)){
+    $("#editform").toggle();
+
     disabledRadioButton();
     retrieved();
+}}
      }
      function undisplayedit(){
-        var a= document.getElementById("editform");
+        var a= $("#editform");
         if(a.style.display=="block"){
           a.style.display= "none";
         }
+    
      }
     
-     function editclose(){
-         var y= document.getElementById("editform");
-    if(y.style.display=="hidden"){
-      y.style.display= "none";
-    }else{
-        y.style.display="none";
-    }
+ function editclose(){
+    $("#editform").toggle();
     enabledRadioButton();
         }
-    
-        function editAndClear(){
+    function editAndClear(){
             if(validateEdit()==true){
                 editInsert();
             }
             editjson();
-              editClear();
-              enabledRadioButton();
-             
-              undisplayedit();
-             
+            editClear();
+            enabledRadioButton();
+            undisplayedit();
           }
-          function editInsert(){
+   function editInsert(){
               var selectedRow=getSelectedRow();
               var coloumns=selectedRow.row.childNodes;
-            
-              coloumns[0].firstChild.nodeValue=document.getElementById("editTitle").value
-              coloumns[1].firstChild.nodeValue=document.getElementById("editDescription").value;
-              coloumns[2].firstChild.nodeValue=document.getElementById("editPerson").value;
-              coloumns[3].firstChild.nodeValue= document.getElementById("editHours").value;
-              coloumns[4].firstChild.nodeValue=document.getElementById("editStartDate").value;
-              coloumns[5].firstChild.nodeValue= document.getElementById("editEndDate").value;
+              coloumns[0].firstChild.nodeValue= $("#editTitle").val();
+              coloumns[1].firstChild.nodeValue= $("#editDescription").val();
+              coloumns[2].firstChild.nodeValue=$("#editPerson").val();
+              coloumns[3].firstChild.nodeValue=  $("#editHours").val();
+              coloumns[4].firstChild.nodeValue= $("#editStartDate").val();
+              coloumns[5].firstChild.nodeValue=  $("#editEndDate").val();
           }
           
           function editClear(){
-              document.getElementById("editTitle").value="";
-              document.getElementById("editDescription").value="";
-              document.getElementById("editPerson").value="";
-              document.getElementById("editHours").value="";
-              document.getElementById("editStartDate").value="";
-              document.getElementById("editEndDate").value="";
+            $("#editTitle").val("");
+            $("#editDescription").val("");
+            $("#editPerson").val("");
+            $("#editHours").val("");
+            $("#editStartDate").val("");
+            $("#editEndDate").val("");
                       }  
              
 function editjson(){
     var selectedrow=getSelectedRow();
-    var editText={ Title:document.getElementById("editTitle").value,Description : document.getElementById("editDescription").value, Assignee:document.getElementById("editPerson").value,EstimatedHours:document.getElementById("editHours"),StartDate:document.getElementById("editStartDate").value,EndDate:document.getElementById("editEndDate").value};
+              
+              var editText={ Title:$("#editTitle").val(),Description :$("#editDescription").val(), Assignee:$("editPerson").val(),EstimatedHours: $("editHours").val(),StartDate: $("editStartDate").val(),EndDate:$("editEndDate").val()};
   
     glbTaskList.splice(selectedrow.index,1,editText);
 
 
 }
 function validateEdit(){
-    var title= document.getElementById("editTitle").value;
-    var descript= document.getElementById("editDescription").value;
-    var person= document.getElementById("editPerson").value;
-    var hours= document.getElementById("editHours").value;
+    var title= $("#editTitle").val();
+    var descript= $("#editDescription").val();
+    var person= $("#editPerson").val();
+    var hours=  $("#editHours").val();
 if(!isNaN(title)||(title==null)){
     alert("title cannot be numeric");
     return false;
