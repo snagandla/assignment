@@ -1,49 +1,16 @@
 function addrow(){
-    var mainrow= document.createElement("tr");
-    document.getElementById("main").appendChild(mainrow);
 
-    var col1=document.createElement("td");
-    col1.appendChild(document.createTextNode(document.getElementById("addTitle").value));
-    mainrow.appendChild(col1);
-
-    var col2=document.createElement("td");
-    col2.appendChild(document.createTextNode(document.getElementById("addDescription").value));
-    mainrow.appendChild(col2);
-
-    var col3=document.createElement("td");
-    col3.appendChild(document.createTextNode(document.getElementById("addPerson").value));
-    mainrow.appendChild(col3);
-
-    
-    var col4=document.createElement("td");
-    col4.appendChild(document.createTextNode(document.getElementById("addHours").value));
-    mainrow.appendChild(col4);
-
-    var col5=document.createElement("td");
-    col5.appendChild(document.createTextNode(document.getElementById("addStartDate").value));
-    mainrow.appendChild(col5);
-
-
-    var col6=document.createElement("td");
-    col6.appendChild(document.createTextNode(document.getElementById("addEndDate").value));
-    mainrow.appendChild(col6);
-    var col7=document.createElement("td");
-    var sel= document.createElement("input");
-    sel.setAttribute("type","radio");
-    sel.setAttribute("name","myRadio");
-    col7.appendChild(sel);
-    mainrow.appendChild(col7);
-
-    var addtext= ({ Title:document.getElementById("addTitle").value,Description : document.getElementById("addDescription").value, Assignee:document.getElementById("addPerson").value,EstimatedHours:document.getElementById("addHours"),StartDate:document.getElementById("addStartDate").value,EndDate:document.getElementById("addEndDate").value});                
+    $("#main").append("<tr><td>" +  $("#addTitle").val() + "</td><td>" + $("#addDescription").val() + "</td><td>" + $("#addPerson").val() + "</td><td>" + $("#addHours").val() + "</td><td>" + $("#addStartDate").val() + "</td><td>" + $("#addEndDate").val() + "</td><td><input type='radio' name='myRadio'></td></tr>");
+    var addtext= ({ Title:$("#addTitle").val(),Description : $("#addDescription").val(), Assignee:$("#addPerson").val(),EstimatedHours: $("#addHours").val(),StartDate:$("#addStartDate").val(),EndDate:$("#addEndDate").val()});                
     glbTaskList.push(addtext);
 
 }
 
 function validateAdd(){
-    var title= document.getElementById("addTitle").value;
-    var descript= document.getElementById("addDescription").value;
-    var person= document.getElementById("addPerson").value;
-    var hours= document.getElementById("addHours").value;
+    var title= $("#addTitle").val();
+    var descript=  $("#addDescription").val();
+    var person=  $("#addPerson").val();
+    var hours=   $("#addHours").val();
 if(!isNaN(title)||(title==null)){
     alert("title cannot be numeric");
     return false;
@@ -61,12 +28,12 @@ if(!isNaN(title)||(title==null)){
 }
 
 function addClear(){
-document.getElementById("addTitle").value="";
-document.getElementById("addDescription").value="";
-document.getElementById("addPerson").value="";
-document.getElementById("addHours").value="";
-document.getElementById("addStartDate").value="";
-document.getElementById("addEndDate").value="";
+    $("#addTitle").val("");
+    $("#addDescription").val("");
+    $("#addPerson").val("");
+    $("#addHours").val("");
+    $("#addStartDate").val("");
+    $("#addEndDate").val(""); 
     }   
     
     
@@ -77,31 +44,12 @@ function addAndClear(){
         }
    
     addClear();  
-    undisplayadd(); 
- }
-function undisplayadd(){
-    var a= document.getElementById("addform");
-    if(a.style.display=="block"){
-      a.style.display= "none";
+    $("#addform").toggle(); 
     }
- }
-
-function displayadd(){
-var x= document.getElementById("addform");
-if(x.style.display=="none"){
-x.style.display= "block";
-}else{
-x.style.display="none";
-}
-}
 
 
 function addclose(){
- var y= document.getElementById("addform");
-if(y.style.display=="hidden"){
-y.style.display= "none";
-}else{
-y.style.display="none";
-}
+    addClear();
+$("#addform").toggle(); 
 }
 
