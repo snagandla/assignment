@@ -13,22 +13,12 @@
 
         </header>
     </head>
-    <body onload="createDefault();"> 
+    <body> 
         
-        <table  align="center" id="main">
-            <tr>
-                <th> Title</th>
-                <th>Description </th>
-                <th>Assignee </th>
-                <th> Estimated Hours </th>
-                <th>Start Date  </th>
-                <th> End Date  </th>
-                <th> Select </th>
-            </tr>
-        </table>
-        <div align="center"> 
-       <input type="button" value="Add"    id="add"> 
-        <input type="button" value="Edit"  id="edit">
+        <table  align="center" id="main"></table>
+        <div align="center">
+       <input type="button" value="Add"   id="add"> 
+        <input type="button" value="Edit"   onclick="displayedit();" id="edit">
         <input type="button" value="Remove" id="remove" onclick="deleterow();">
         <input type="button" value="Display as JSON String" id="jsonstring" width="150px" onclick="jsondisplay();"> </div>
 
